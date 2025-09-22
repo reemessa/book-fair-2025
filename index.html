@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل معرض عمان للكتاب</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+
+            <h1> دليل معرض عمان للكتاب</h1>
+            <p>اكتشف جميع دور النشر واعثر على كتبك المفضلة بسهولة</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Search and Filter Section -->
+        <section class="search-section">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="ابحث عن دار النشر...">
+                <button id="searchBtn">🔍</button>
+            </div>
+
+            <div class="filters">
+                <select id="sectionFilter">
+                    <option value="">جميع القاعات</option>
+                    <option value="A">قاعة A</option>
+                    <option value="B">قاعة B</option>
+                    <option value="C">قاعة C</option>
+                </select>
+
+                <select id="countryFilter">
+                    <option value="">🌍 جميع البلدان</option>
+                    <option value="الأردن">🇯🇴 الأردن</option>
+                    <option value="مصر">🇪🇬 مصر</option>
+                    <option value="لبنان">🇱🇧 لبنان</option>
+                    <option value="سوريا">🇸🇾 سوريا</option>
+                    <option value="فلسطين">🇵🇸 فلسطين</option>
+                    <option value="الإمارات العربية المتحدة">🇦🇪 الإمارات</option>
+                    <option value="الكويت">🇰🇼 الكويت</option>
+                    <option value="السعودية">🇸🇦 السعودية</option>
+                    <option value="سلطنة عمان">🇴🇲 سلطنة عمان</option>
+                    <option value="قطر">🇶🇦 قطر</option>
+                    <option value="المغرب">🇲🇦 المغرب</option>
+                    <option value="تركيا">🇹🇷 تركيا</option>
+                    <option value="كندا">🇨🇦 كندا</option>
+                    <option value="الصين">🇨🇳 الصين</option>
+                    <option value="المملكة المتحدة">🇬🇧 المملكة المتحدة</option>
+                </select>
+
+                <button id="clearFilters">مسح الفلاتر</button>
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="stats-section">
+            <div class="stat-card">
+                <h3 id="favoritesCount">0</h3>
+                <p>المفضلة</p>
+            </div>
+        </section>
+
+        <!-- My Favorites Section -->
+        <section class="favorites-section" id="favoritesSection" style="display: none;">
+            <h2>📚 قائمة المفضلة</h2>
+            <div id="favoritesList" class="publishers-grid"></div>
+            <button id="clearFavorites" class="clear-btn">مسح جميع المفضلة</button>
+        </section>
+
+        <!-- Publishers Grid -->
+        <section class="publishers-section">
+            <div class="section-header">
+                <h2>دور النشر</h2>
+                <div class="view-toggle">
+                    <button id="gridView" class="active">⊞ شبكة</button>
+                    <button id="listView">☰ قائمة</button>
+                </div>
+            </div>
+
+            <!-- Loading indicator -->
+            <div id="loadingIndicator" class="loading-container">
+                <div class="loading-spinner"></div>
+                <p>جاري تحميل دور النشر...</p>
+            </div>
+
+            <div id="publishersContainer" class="publishers-grid"></div>
+        </section>
+
+        <!-- No Results Message -->
+        <div id="noResults" class="no-results" style="display: none;">
+            <h3>لا توجد نتائج</h3>
+            <p>جرب البحث بكلمات مختلفة أو امسح الفلاتر</p>
+        </div>
+    </main>
+
+    <!-- Map Modal -->
+    <div id="mapModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>خريطة معرض الكتاب</h2>
+            <div class="map-container">
+                <div class="hall hall-a">
+                    <h3>قاعة A</h3>
+                    <div class="booths-grid" id="hallA"></div>
+                </div>
+                <div class="hall hall-b">
+                    <h3>قاعة B</h3>
+                    <div class="booths-grid" id="hallB"></div>
+                </div>
+                <div class="hall hall-c">
+                    <h3>قاعة C</h3>
+                    <div class="booths-grid" id="hallC"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Show Map Button -->
+    <button id="showMapBtn" class="floating-btn">🗺️ الخريطة</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
