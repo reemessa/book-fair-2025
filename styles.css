@@ -220,9 +220,28 @@ header p {
     gap: 1rem;
 }
 
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
 .section-header h2 {
     color: #2d4f5f;
     font-size: 1.8rem;
+    margin: 0;
+}
+
+.favorites-badge {
+    background: #4a9b9b;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    min-width: 24px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(74, 155, 155, 0.3);
 }
 
 .view-toggle {
@@ -574,5 +593,33 @@ header p {
     .booth {
         font-size: 0.7rem;
         padding: 6px 2px;
+    }
+}
+
+
+body.has-notice {
+    padding-top: 60px;
+}
+
+/* Ensure the notice doesn't cover content */
+#inAppNotice {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 10000 !important;
+}
+
+/* In-app browser specific fixes */
+@media screen and (max-width: 768px) {
+    /* Force simple layout for in-app browsers */
+    .publishers-grid {
+        display: block !important;
+    }
+    
+    .publisher-card {
+        display: block !important;
+        width: 100% !important;
+        margin-bottom: 1rem !important;
     }
 }
